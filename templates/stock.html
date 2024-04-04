@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/scripts.js"></script>
+    <title>Jorge Bruna</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="contenedor_tabla">
+            <table class="tabla">
+                <tr class="columna">
+                    <th>CODIGO</th>
+                    <th>CODIGO INTERNO</th>
+                    <th>DESCRIPCION</th>
+                    <th>CANTIDAD</th>
+                    <th>TIPO</th>
+                    <th>PROVEEDOR</th>
+                    <th>PRECIO</th>
+                </tr>
+                <tr class="columna">
+                    <td>DATO</td>
+                    <td>DATO</td>
+                    <td>DATO</td>
+                    <td>DATO</td>
+                    <td>DATO</td>
+                    <td>DATO</td>
+                    <td>DATO</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contenedor_boton">
+            <button class="boton" onclick="abrirModal()">Nuevo articulo</button>
+            <button class="boton">Buscar articulo</button>
+            <button class="boton">Editar</button>
+            <button class="boton">Eliminar</button>
+        </div>
+    </div>
+    <!-- VENTANA EMERGENTE PARA AGREGAR ARTICULO -->
+    <div id="miModal" class="buscar_articulo">
+        <div class="buscar_contenido">
+            <span class="x" onclick="cerrarModal()">&times;</span>
+            <h2>Ingresa el articulo</h2>
+            <label for="">Codigo:<span class="input"><input type="text" name="" id=""></span></label>
+            <label for="">Codigo Interno:<span class="input"><input type="number" name="" id=""></span></label>
+            <label for="">Descripcion:<span class="input"><input type="text" name="" id=""></span></label>
+            <label for="">Cantidad:<span class="input"><input type="number" name="" id=""></span></label>
+            <label for="">Proveedor:<span class="input"><input type="text" name="" id=""></span></label>
+            <label for="">Precio:<span class="input"><input type="number" name="" id=""></span></label>
+            <button class="buscar_boton">Cargar</button>
+            <button class="buscar_boton" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+</body>
+</html>
