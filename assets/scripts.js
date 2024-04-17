@@ -1,9 +1,9 @@
-    // Función para abrir la ventana modal
+    // Función para abrir la ventana agregar articulo
     function abrirModal() {
-        document.getElementById('miModal').style.display = 'flex';
+        document.getElementById('ventana_articulo').style.display = 'flex';
     }
 
-    // Función para cerrar la ventana modal
+    // Función para cerrar la ventana agregar articulo
     function cerrarModal() {
-        document.getElementById('miModal').style.display = 'none';
+        document.getElementById('ventana_articulo').style.display = 'none';
     }

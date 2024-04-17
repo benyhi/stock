@@ -7,14 +7,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style.css">
-    <script src="../assets/scripts.js"></script>
     <title>Jorge Bruna</title>
 </head>
 <body>
     <div class="contenedor">
         <div class="contenedor_tabla">
             <table class="tabla">
-                <tr class="columna">
+                <tr class="tabla_headers">
                     <th>CODIGO</th>
                     <th>CODIGO INTERNO</th>
                     <th>DESCRIPCION</th>
@@ -23,14 +22,16 @@
                     <th>PROVEEDOR</th>
                     <th>PRECIO</th>
                 </tr>
-                <tr class="columna">
-                    <td>DATO</td>
-                    <td>DATO</td>
-                    <td>DATO</td>
-                    <td>DATO</td>
-                    <td>DATO</td>
-                    <td>DATO</td>
-                    <td>DATO</td>
+                {% for item in data %}
+                <tr class="tabla_filas">
+                    <td>{{[item[1]]}}</td>
+                    <td>{{[item[2]]}}</td>
+                    <td>{{[item[3]]}}</td>
+                    <td>{{[item[4]]}}</td>
+                    <td>{{[item[5]]}}</td>
+                    <td>{{[item[6]]}}</td>
+                    <td>{{[item[7]]}}</td>
+                    {%endfor%}
                 </tr>
             </table>
         </div>
@@ -42,7 +43,7 @@
         </div>
     </div>
     <!-- VENTANA EMERGENTE PARA AGREGAR ARTICULO -->
-    <div id="miModal" class="buscar_articulo">
+    <div id="ventana_articulo" class="buscar_articulo">
         <div class="buscar_contenido">
             <span class="x" onclick="cerrarModal()">&times;</span>
             <h2>Ingresa el articulo</h2>
@@ -56,5 +57,10 @@
             <button class="buscar_boton" onclick="cerrarModal()">Cerrar</button>
         </div>
     </div>
+
+
+
+
+    <script src="../assets/scripts.js"></script>
 </body>
 </html>

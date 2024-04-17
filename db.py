@@ -60,7 +60,7 @@ def EliminarDato(columna,dato):
     print("Articulo eliminado con exito")
 
 
-# resultado = AñadirDato(2,1,"Hola",1,"FABIMAG","BENVENUTO",100)
+# resultado = AñadirD   ato(2,1,"Hola",1,"FABIMAG","BENVENUTO",100)
 
 # if resultado: 
 #     print("El dato esta guardado")
