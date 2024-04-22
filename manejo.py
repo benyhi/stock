@@ -11,7 +11,7 @@ def index():
     c = conn.cursor()
     
     # Ejecutar una consulta para obtener datos de la tabla
-    c.execute('SELECT * FROM pruebas')
+    c.execute('SELECT * FROM articulos')
     data = c.fetchall()
     
     # Cerrar la conexión

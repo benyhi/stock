@@ -6,10 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/style.css') }}">
     <title>Jorge Bruna</title>
 </head>
 <body>
+    <!-- TABLA STOCK-->
     <div class="contenedor">
         <div class="contenedor_tabla">
             <table class="tabla">
@@ -24,28 +25,36 @@
                 </tr>
                 {% for item in data %}
                 <tr class="tabla_filas">
-                    <td>{{[item[1]]}}</td>
-                    <td>{{[item[2]]}}</td>
-                    <td>{{[item[3]]}}</td>
-                    <td>{{[item[4]]}}</td>
-                    <td>{{[item[5]]}}</td>
-                    <td>{{[item[6]]}}</td>
-                    <td>{{[item[7]]}}</td>
-                    {%endfor%}
+                    <td>{{item[1]}}</td>
+                    <td>{{item[2]}}</td>
+                    <td>{{item[3]}}</td>
+                    <td>{{item[4]}}</td>
+                    <td>{{item[5]}}</td>
+                    <td>{{item[6]}}</td>
+                    <td>{{item[7]}}</td>
                 </tr>
+                {%endfor%}
             </table>
         </div>
+        <!-- BOTONES TABLA STOCK-->
         <div class="contenedor_boton">
-            <button class="boton" onclick="abrirModal()">Nuevo articulo</button>
-            <button class="boton">Buscar articulo</button>
-            <button class="boton">Editar</button>
-            <button class="boton">Eliminar</button>
+            <div class="tabla_funciones">
+                <button type="button" class="boton" onclick="abrirAgregar()">Nuevo articulo</button>
+                <button type="button" class="boton" onclick="abrirBuscador()">Buscar articulo</button>
+                <button type="button" class="boton">Editar</button>
+                <button type="button" class="boton">Eliminar</button>
+            </div>
+            <div id="paginacion">
+                <button type="button" id="anterior">Anterior</button>
+                <span id="paginas"></span>
+                <button type="button" id="siguiente">Siguiente</button>
+            </div>
         </div>
     </div>
     <!-- VENTANA EMERGENTE PARA AGREGAR ARTICULO -->
-    <div id="ventana_articulo" class="buscar_articulo">
-        <div class="buscar_contenido">
-            <span class="x" onclick="cerrarModal()">&times;</span>
+    <div id="ventana_agregar" class="agregar_articulo">
+        <div class="agregar_contenido">
+            <span class="x" onclick="cerrarAgregar()">&times;</span>
             <h2>Ingresa el articulo</h2>
             <label for="">Codigo:<span class="input"><input type="text" name="" id=""></span></label>
             <label for="">Codigo Interno:<span class="input"><input type="number" name="" id=""></span></label>
@@ -53,14 +62,22 @@
             <label for="">Cantidad:<span class="input"><input type="number" name="" id=""></span></label>
             <label for="">Proveedor:<span class="input"><input type="text" name="" id=""></span></label>
             <label for="">Precio:<span class="input"><input type="number" name="" id=""></span></label>
-            <button class="buscar_boton">Cargar</button>
-            <button class="buscar_boton" onclick="cerrarModal()">Cerrar</button>
+            <button type="submit" class="buscar_boton">Cargar</button>
+            <button type="button" class="buscar_boton" onclick="cerrarAgregar()">Cerrar</button>
         </div>
     </div>
-
-
-
-
-    <script src="../assets/scripts.js"></script>
+     <!-- VENTANA EMERGENTE PARA BUSCAR ARTICULO -->
+    <div id="ventana_buscar" class="buscar_articulo">
+        <div class="buscar_contenido">
+            <span class="x" onclick="cerrarBuscador()">&times;</span>
+            <h2>Buscar articulo</h2>
+            <label for="">Codigo:<span class="input"><input type="text" name="" id="codigo_buscar"></span></label>
+            <label for="">Codigo Interno:<span class="input"><input type="number" name="" id="codinterno_buscar"></span></label>
+            <label for="">Descripcion:<span class="input"><input type="text" name="" id="descrip_buscar"></span></label>
+            <button type="submit" class="buscar_boton" onclick="buscarArticulo()">Buscar</button>
+            <button type="button" class="buscar_boton" onclick="cerrarBuscador()">Cerrar</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='assets/scripts.js') }}"></script>
 </body>
 </html>
