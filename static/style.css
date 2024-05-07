@@ -1,0 +1,48 @@
+:root{
+    --fuente_principal: Roboto, Arial, sans-serif;
+    --color_principal: #eeca06;
+    --color_secundario: white;
+
+
+
+}
+
+
+
+html{
+    font-family: var(--fuente_principal);
+}
+
+h1{
+    font-size: 1.9rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 1rem;
+}
+
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor_tabla{
+    padding: 10rem 5rem 2rem 5rem;
+}
+
+
+.boton{
+    margin: 0 .5rem 0 0;
+    padding: .6rem 1rem .6rem 1rem;
+    font-weight: bold;
+    background-color: var(--color_principal);
+    color: var(--color_secundario);
+    border-radius: 10px;
+    border: 1px solid #c9ab04;
+}

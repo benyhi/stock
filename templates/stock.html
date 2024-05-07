@@ -1,83 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/style.css') }}">
-    <title>Jorge Bruna</title>
-</head>
-<body>
-    <!-- TABLA STOCK-->
-    <div class="contenedor">
-        <div class="contenedor_tabla">
-            <table class="tabla">
-                <tr class="tabla_headers">
+{%extends "layout.html"%}
+
+
+{%block content%}
+<div class="contenedor">
+<!-- TABLA STOCK-->
+    <div class="contenedor_tabla">
+        <table id="tabla">
+            <thead>
+                <tr>
                     <th>CODIGO</th>
                     <th>CODIGO INTERNO</th>
                     <th>DESCRIPCION</th>
                     <th>CANTIDAD</th>
-                    <th>TIPO</th>
                     <th>PROVEEDOR</th>
                     <th>PRECIO</th>
+                    <th>ACCIONES</th>
                 </tr>
+            </thead>
+            <tbody>
                 {% for item in data %}
-                <tr class="tabla_filas">
-                    <td>{{item[1]}}</td>
-                    <td>{{item[2]}}</td>
-                    <td>{{item[3]}}</td>
-                    <td>{{item[4]}}</td>
-                    <td>{{item[5]}}</td>
-                    <td>{{item[6]}}</td>
-                    <td>{{item[7]}}</td>
+                    <tr class="tabla_filas">
+                    <td>{{item.1}}</td>
+                    <td>{{item.2}}</td>
+                    <td>{{item.3}}</td>
+                    <td>{{item.4}}</td>
+                    <td>{{item.6}}</td>
+                    <td>{{item.7}}</td>
+                    <td>
+                        <a href="/editar">Editar</a>
+                        <a href="/eliminar/{{item.0}}">Eliminar</a>
+                    </td>
                 </tr>
                 {%endfor%}
-            </table>
-        </div>
-        <!-- BOTONES TABLA STOCK-->
-        <div class="contenedor_boton">
-            <div class="tabla_funciones">
-                <button type="button" class="boton" onclick="abrirAgregar()">Nuevo articulo</button>
-                <button type="button" class="boton" onclick="abrirBuscador()">Buscar articulo</button>
-                <button type="button" class="boton">Editar</button>
-                <button type="button" class="boton">Eliminar</button>
-            </div>
-            <div id="paginacion">
-                <button type="button" id="anterior">Anterior</button>
-                <span id="paginas"></span>
-                <button type="button" id="siguiente">Siguiente</button>
-            </div>
-        </div>
+            </tbody>
+        </table>
     </div>
-    <!-- VENTANA EMERGENTE PARA AGREGAR ARTICULO -->
-    <div id="ventana_agregar" class="agregar_articulo">
-        <div class="agregar_contenido">
-            <span class="x" onclick="cerrarAgregar()">&times;</span>
-            <h2>Ingresa el articulo</h2>
-            <label for="">Codigo:<span class="input"><input type="text" name="" id=""></span></label>
-            <label for="">Codigo Interno:<span class="input"><input type="number" name="" id=""></span></label>
-            <label for="">Descripcion:<span class="input"><input type="text" name="" id=""></span></label>
-            <label for="">Cantidad:<span class="input"><input type="number" name="" id=""></span></label>
-            <label for="">Proveedor:<span class="input"><input type="text" name="" id=""></span></label>
-            <label for="">Precio:<span class="input"><input type="number" name="" id=""></span></label>
-            <button type="submit" class="buscar_boton">Cargar</button>
-            <button type="button" class="buscar_boton" onclick="cerrarAgregar()">Cerrar</button>
-        </div>
+<!-- BOTONES TABLA STOCK-->
+    <div class="contenedor_botones">
+        <button type="button" class="boton" onclick="abrirAgregar()">Nuevo articulo</button>
+        <button type="button" class="boton" onclick="abrirBuscador()">Buscar articulo</button>
+        <button type="button" class="boton">Editar</button>
+        <button type="button" class="boton">Eliminar</button>
     </div>
-     <!-- VENTANA EMERGENTE PARA BUSCAR ARTICULO -->
-    <div id="ventana_buscar" class="buscar_articulo">
-        <div class="buscar_contenido">
-            <span class="x" onclick="cerrarBuscador()">&times;</span>
-            <h2>Buscar articulo</h2>
-            <label for="">Codigo:<span class="input"><input type="text" name="" id="codigo_buscar"></span></label>
-            <label for="">Codigo Interno:<span class="input"><input type="number" name="" id="codinterno_buscar"></span></label>
-            <label for="">Descripcion:<span class="input"><input type="text" name="" id="descrip_buscar"></span></label>
-            <button type="submit" class="buscar_boton" onclick="buscarArticulo()">Buscar</button>
-            <button type="button" class="buscar_boton" onclick="cerrarBuscador()">Cerrar</button>
-        </div>
-    </div>
-    <script src="{{ url_for('static', filename='assets/scripts.js') }}"></script>
-</body>
-</html>
+</div>
+{%endblock%}
