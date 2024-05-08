@@ -1,0 +1,16 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class="contenedor_editar">
+    <h2>Editar articulo</h2>
+    <form method="POST">
+        <label for="codigo">Codigo<input type="number" id="codigo_edit" name="codigo_edit" value="{{articulo.1}}"></label>
+        <label for="codInterno">Codigo Interno<input type="number" id="codInterno_edit" name="codInterno_edit" value=""></label>
+        <label for="descripcion">Descripcion<input type="text" id="descripcion_edit" name="descripcion_edit" value=""></label>
+        <label for="cantidad">Cantidad<input type="number" id="cantidad_edit" name="cantidad_edit" value=""></label>
+        <label for="proveedor">Proveedor<input type="text" id="proveedor_edit" name="proveedor_edit" value=""></label>
+        <label for="precio">Precio<input type="number" id="precio_edit" name="precio_edit" value=""></label>
+        <button type="submit" >Cargar articulo</button>
+        <button type="button" onclick="cerrarEditar()">Cerrar</button>
+    </form>
+</div>
+{%endblock%}

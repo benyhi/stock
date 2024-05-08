@@ -2,45 +2,34 @@
 
 
 {%block content%}
-<div class="contenedor">
-<!-- TABLA STOCK-->
-    <div class="contenedor_tabla">
-        <table id="tabla">
-            <thead>
-                <tr>
-                    <th>CODIGO</th>
-                    <th>CODIGO INTERNO</th>
-                    <th>DESCRIPCION</th>
-                    <th>CANTIDAD</th>
-                    <th>PROVEEDOR</th>
-                    <th>PRECIO</th>
-                    <th>ACCIONES</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in data %}
-                    <tr class="tabla_filas">
-                    <td>{{item.1}}</td>
-                    <td>{{item.2}}</td>
-                    <td>{{item.3}}</td>
-                    <td>{{item.4}}</td>
-                    <td>{{item.6}}</td>
-                    <td>{{item.7}}</td>
-                    <td>
-                        <a href="/editar">Editar</a>
-                        <a href="/eliminar/{{item.0}}">Eliminar</a>
-                    </td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
-    </div>
-<!-- BOTONES TABLA STOCK-->
-    <div class="contenedor_botones">
-        <button type="button" class="boton" onclick="abrirAgregar()">Nuevo articulo</button>
-        <button type="button" class="boton" onclick="abrirBuscador()">Buscar articulo</button>
-        <button type="button" class="boton">Editar</button>
-        <button type="button" class="boton">Eliminar</button>
-    </div>
+<!-- VENTANA EMERGENTE PARA AGREGAR ARTICULO -->
+<div class="contenedor_agregar">
+    <h2>Ingresa el articulo</h2>
+    <form method="POST">
+        <label for="codigo">Codigo<input type="number" id="codigo" name="codigo"></label>
+        <label for="codInterno">Codigo Interno<input type="number" id="codInterno" name="codInterno"></label>
+        <label for="descripcion">Descripcion<input type="text" id="descripcion" name="descripcion"></label>
+        <label for="cantidad">Cantidad<input type="number" id="cantidad" name="cantidad"></label>
+        <label for="proveedor">Proveedor<input type="text" id="proveedor" name="proveedor"></label>
+        <label for="precio">Precio<input type="number" id="precio" name="precio"></label>
+        <button type="submit" >Cargar articulo</button>
+        <button type="button" onclick="cerrarAgregar()">Cerrar</button>
+    </form>
 </div>
+<!-- VENTANA EMERGENTE PARA EDITAR ARTICULO -->
+{%if article%}
+<div class="contenedor_editar">
+    <h2>Editar articulo</h2>
+    <form action="/actualizar/{{article.0}}" method="POST">
+        <label for="codigo">Codigo<input type="number" id="codigo_edit" name="codigo_edit" value="{{article.1}}"></label>
+        <label for="codInterno">Codigo Interno<input type="number" id="codInterno_edit" name="codInterno_edit" value="{{article.2}}"></label>
+        <label for="descripcion">Descripcion<input type="text" id="descripcion_edit" name="descripcion_edit" value="{{article.3}}"></label>
+        <label for="cantidad">Cantidad<input type="number" id="cantidad_edit" name="cantidad_edit" value="{{article.4}}"></label>
+        <label for="proveedor">Proveedor<input type="text" id="proveedor_edit" name="proveedor_edit" value="{{article.6}}"></label>
+        <label for="precio">Precio<input type="number" id="precio_edit" name="precio_edit" value="{{article.7}}"></label>
+        <button type="submit" >Cargar articulo</button>
+        <button type="button" onclick="cerrarEditar()">Cerrar</button>
+    </form>
+</div>
+{%endif%}
 {%endblock%}

@@ -22,7 +22,7 @@ def AñadirDato(codigo, codinterno, descripcion, cantidad, tipo, proveedor, prec
         print("Error al cargar los datos: ", error)
         return False
 
-
+#c.execute('UPDATE articulos SET codigo = ?, codinterno = ?, descripcion = ?, cantidad = ?, proveedor = ?, precio = ? WHERE id = ?',(codigo, codInterno, descripcion, cantidad, proveedor, precio, id))
 
 def LeerDatos():
     cursor.execute("""SELECT * FROM pruebas""")

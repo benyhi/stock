@@ -14,6 +14,45 @@
     <aside>
         <button>[][][][]</button>
     </aside>
+    <div class="contenedor">
+        <!-- TABLA STOCK-->
+            <div class="contenedor_tabla">
+                <table id="tabla">
+                    <thead>
+                        <tr>
+                            <th>CODIGO</th>
+                            <th>CODIGO INTERNO</th>
+                            <th>DESCRIPCION</th>
+                            <th>CANTIDAD</th>
+                            <th>PROVEEDOR</th>
+                            <th>PRECIO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                            <tr class="tabla_filas">
+                            <td>{{item.1}}</td>
+                            <td>{{item.2}}</td>
+                            <td>{{item.3}}</td>
+                            <td>{{item.4}}</td>
+                            <td>{{item.6}}</td>
+                            <td>{{item.7}}</td>
+                            <td>
+                                <a href="/editar/{{item.0}}">Editar</a>
+                                <a href="/eliminar/{{item.0}}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        <!-- BOTONES TABLA STOCK-->
+            <div class="contenedor_botones">
+                <button type="button" class="boton" onclick="abrirAgregar()">Nuevo articulo</button>
+                <button type="button" class="boton" onclick="">Buscar articulo</button>
+            </div>
+        </div>
     {%block content%}
     {%endblock%}
 
